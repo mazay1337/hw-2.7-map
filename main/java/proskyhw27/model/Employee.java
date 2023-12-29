@@ -6,14 +6,18 @@ public class Employee {
 
     private final  String firstName;
     private final String lastName;
-    private int id;
-    private static int count = 0;
 
-    public Employee(String firstName, String lastName) {
+    private int salary;
+
+    private int departmentId;
+
+    public Employee(String firstName, String lastName, int salary, int departmentId) {
         this.firstName = firstName;
         this.lastName = lastName;
-        int id = ++count;
+        this.salary = salary;
+        this.departmentId = departmentId;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -23,13 +27,17 @@ public class Employee {
         return lastName;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
+    public int getSalary() {
+        return salary;
+    }
+
+    public int getDepartmentId() {
+        return departmentId;
     }
 
     @Override
     public String toString() {
-        return "ID:" + id + " " + lastName + firstName;
+        return lastName + firstName;
     }
 
     @Override
@@ -37,11 +45,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return  Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, id);
+        return Objects.hash(firstName, lastName);
     }
+
 }
