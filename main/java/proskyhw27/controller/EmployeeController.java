@@ -28,18 +28,14 @@ public class EmployeeController {
 
     @GetMapping("/remove")
     public Employee removeEmployee(@RequestParam String firstName,
-                                   @RequestParam String lastName,
-                                   @RequestParam int salary,
-                                   @RequestParam int departmentId) {
-        return service.removeEmployee(firstName, lastName, salary, departmentId);
+                                   @RequestParam String lastName) {
+        return service.removeEmployee(firstName, lastName);
     }
 
     @GetMapping("/find")
     public Employee findEmployee(@RequestParam String firstName,
-                                 @RequestParam String lastName,
-                                 @RequestParam int salary,
-                                 @RequestParam int departmentId) {
-        return service.findEmployee(firstName, lastName, salary, departmentId);
+                                 @RequestParam String lastName) {
+        return service.findEmployee(firstName, lastName);
     }
 
     @GetMapping
